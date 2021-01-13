@@ -149,7 +149,6 @@ func insertOneTask(task models.ToDoList)  {
 }
 
 func taskComplete(task string){
-	fmt.Println(task)
 	id, _ := primitive.ObjectIDFromHex(task)
 	filter := bson.M{"_id": id}
 	update := bson.M{"$set": bson.M{"status": true}}

@@ -29,7 +29,7 @@ class TodoList extends Component {
         if (task) {
             axios
                 .post(
-                    apiConstants.TASK_ENDPOINT,
+                    apiConstants.TASK_URL,
                     {
                         task
                     },
@@ -49,7 +49,7 @@ class TodoList extends Component {
     };
 
     getTask = () => {
-        axios.get(apiConstants.TASK_ENDPOINT).then(res => {
+        axios.get(apiConstants.TASK_URL).then(res => {
             if (res.data) {
                 this.setState({
                     items: res.data.map(item => {
@@ -109,7 +109,7 @@ class TodoList extends Component {
 
     updateTask = id => {
         axios
-            .put(apiConstants.TASK_ENDPOINT + '/' + id, {
+            .put(apiConstants.TASK_URL + '/' + id, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
@@ -121,7 +121,7 @@ class TodoList extends Component {
 
     undoTask = id => {
         axios
-            .put(apiConstants.UNDO_TASK_ENDPOINT + id, {
+            .put(apiConstants.UNDO_TASK_URL + id, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
@@ -133,7 +133,7 @@ class TodoList extends Component {
 
     deleteTask = id => {
         axios
-            .delete(apiConstants.DELETE_TASK_ENDPOINT + id, {
+            .delete(apiConstants.DELETE_TASK_URL + id, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
