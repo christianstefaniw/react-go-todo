@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Card, Header, Form, Input, Icon } from "semantic-ui-react";
+import {DELETE_TASK_URL, TASK_URL, UNDO_TASK_URL} from "../constants/api-constants";
 
-const apiConstants = require('./constants/api-constants')
 
 class TodoList extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class TodoList extends Component {
         if (task) {
             axios
                 .post(
-                    apiConstants.TASK_URL,
+                    TASK_URL,
                     {
                         task
                     },
@@ -49,7 +49,7 @@ class TodoList extends Component {
     };
 
     getTask = () => {
-        axios.get(apiConstants.TASK_URL).then(res => {
+        axios.get(TASK_URL).then(res => {
             if (res.data) {
                 this.setState({
                     items: res.data.map(item => {
@@ -109,7 +109,7 @@ class TodoList extends Component {
 
     updateTask = id => {
         axios
-            .put(apiConstants.TASK_URL + '/' + id, {
+            .put(TASK_URL + '/' + id, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
@@ -121,7 +121,7 @@ class TodoList extends Component {
 
     undoTask = id => {
         axios
-            .put(apiConstants.UNDO_TASK_URL + id, {
+            .put(UNDO_TASK_URL + id, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }
@@ -133,7 +133,7 @@ class TodoList extends Component {
 
     deleteTask = id => {
         axios
-            .delete(apiConstants.DELETE_TASK_URL + id, {
+            .delete(DELETE_TASK_URL + id, {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 }

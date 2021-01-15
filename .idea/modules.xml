@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/react-ts-go-todo.iml" filepath="$PROJECT_DIR$/.idea/react-ts-go-todo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/react-go-todo.iml" filepath="$PROJECT_DIR$/.idea/react-go-todo.iml" />
     </modules>
   </component>
 </project>
